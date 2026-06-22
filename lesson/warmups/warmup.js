@@ -29,10 +29,10 @@ comparisonsButton.addEventListener("click", function() {
   // YOUR TURN: Predict what these will log, then uncomment to check
   // ============================================================
 
-  // console.log("15 >= 15 is:", 15 >= 15);
-  // console.log("3 <= 2 is:", 3 <= 2);
-  // console.log("'hello' === 'hello' is:", "hello" === "hello");
-  // console.log("100 > 99 is:", 100 > 99);
+  console.log("15 >= 15 is:", 15 >= 15); //true
+  console.log("3 <= 2 is:", 3 <= 2); //false
+  console.log("'hello' === 'hello' is:", "hello" === "hello"); //true
+  console.log("100 > 99 is:", 100 > 99); //true
 
 });
 
@@ -52,9 +52,15 @@ checkBigButton.addEventListener("click", function() {
   // WE DO TOGETHER: Check if the number is "big" (50 or more)
   if (userNumber >= 50) {
     alert("That's a BIG number!");
-  } else {
+  } else if (userNumber < 10) {
     alert("That's a small number.");
+  } else if (userNumber >= 10 || userNumber <= 49){
+    alert("That's a Medium number!")
+  } else {
+    alert ("IDK")
   }
+
+  
 
   // ============================================================
   // YOUR TURN: Modify this to have THREE categories:
@@ -90,7 +96,6 @@ checkGradeButton.addEventListener("click", function() {
   // UNCOMMENT THIS BUGGY VERSION FIRST:
   // ------------------------------------------------------------
 
-  /*
   if (score >= 60) {
     grade = "D";
   } else if (score >= 70) {
@@ -102,7 +107,6 @@ checkGradeButton.addEventListener("click", function() {
   } else {
     grade = "F";
   }
-  */
 
   // ============================================================
   // WE DO TOGETHER - THE FIX!
@@ -195,7 +199,20 @@ generateRandomButton.addEventListener("click", function() {
   // 3. Math.floor() rounds down to 0 to 99
   // 4. Add 1 to get 1 to 100
 
+  let randomNumebr = Math.random();
+  let wholeRandomNumber = randomNumebr * 100;
+  let dropTheDecimal = Math.floor(wholeRandomNumber);
+  let roundUp = dropTheDecimal + 1;
+
   let secretNumber = Math.floor(Math.random() * 100) + 1;
+
+  let isInRange;
+
+  if (secretNumber < 30 && secretNumber > 10){
+    isInRange = true;
+  } else { isInRange = false
+
+  }
 
   randomResult.innerHTML = `Random number: ${secretNumber}`;
   console.log("Generated:", secretNumber);
